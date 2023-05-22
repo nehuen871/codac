@@ -35,7 +35,7 @@ export class LogintService {
         }
         async function postData(url = '',validation={}, data = {}) {
             // Default options are marked with *
-            data.row.quit = validation.numeroCui;
+            data.row.cuit = validation.numeroCui;
             const response = await fetch(url, {
               method: 'POST', // *GET, POST, PUT, DELETE, etc.
               mode: 'cors', // no-cors, *cors, same-origin

@@ -26,9 +26,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', (req, res) => {
-  let {quit,pass} = req.body;
-  const query = `SELECT * from usuarios where quit = ? and pass = ?;`;
-  mysqlConnection.query(query,[quit,pass], (err, rows, fields) => {
+  let {cuit,pass} = req.body;
+  const query = `SELECT * from usuarios where cuit = ? and pass = ?;`;
+  mysqlConnection.query(query,[cuit,pass], (err, rows, fields) => {
     if(!err) {
       if(rows.length == 0){
         res.json(0);
@@ -41,10 +41,10 @@ router.post('/', (req, res) => {
   });
 });
 router.post('/adauth', (req, res) => {
-  let {quit,pass} = req.body;
+  let {cuit,pass} = req.body;
   response = "";
   try {
-    let urlSend = url+quit;
+    let urlSend = url+cuit;
     const init = {
       method: 'GET',
       headers:{

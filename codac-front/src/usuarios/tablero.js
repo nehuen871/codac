@@ -25,7 +25,7 @@ export default class Tabla extends Component {
         idusuarios: null,
         nombre: '',
         apellido: null,
-        quit: '',
+        cuit: '',
         pass: null
     };
 
@@ -322,7 +322,7 @@ export default class Tabla extends Component {
                         <Column field="idusuarios" header="idusuarios" sortable style={{ minWidth: '12rem' }}></Column>
                         <Column field="nombre" header="nombre" sortable style={{ minWidth: '16rem' }}></Column>
                         <Column field="apellido" header="apellido"></Column>
-                        <Column field="quit" header="quit" sortable style={{ minWidth: '8rem' }}></Column>
+                        <Column field="cuit" header="cuit" sortable style={{ minWidth: '8rem' }}></Column>
                         <Column field="pass" header="pass" sortable style={{ minWidth: '10rem' }}></Column>
                         <Column body={this.actionBodyTemplate} exportable={false} style={{ minWidth: '8rem' }}></Column>
                     </DataTable>
@@ -340,9 +340,9 @@ export default class Tabla extends Component {
                         {this.state.submitted && !this.state.product.apellido && <small className="p-error">apellido is required.</small>}
                     </div>
                     <div className="field">
-                        <label htmlFor="quit">quit</label>
-                        <InputText id="quit" value={this.state.product.quit} onChange={(e) => this.onInputChange(e, 'quit')} required autoFocus className={classNames({ 'p-invalid': this.state.submitted && !this.state.product.quit })} />
-                        {this.state.submitted && !this.state.product.quit && <small className="p-error">quit is required.</small>}
+                        <label htmlFor="cuit">cuit</label>
+                        <InputText id="cuit" value={this.state.product.cuit} onChange={(e) => this.onInputChange(e, 'cuit')} required autoFocus className={classNames({ 'p-invalid': this.state.submitted && !this.state.product.cuit })} />
+                        {this.state.submitted && !this.state.product.cuit && <small className="p-error">cuit is required.</small>}
                     </div>
                     <div className="field">
                         <label htmlFor="pass">pass</label>

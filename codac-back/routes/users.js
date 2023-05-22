@@ -18,9 +18,9 @@ router.get('/', function(req, res, next) {
 });
 router.post('/insert', (req, res) => {
   console.log(req.body);
-  let {nombre,apellido,quit,pass,roles_idroles} = req.body;
-  const query = `INSERT INTO usuarios (nombre,apellido,quit,pass,roles_idroles) VALUES (?,?,?,?,?);`;
-  mysqlConnection.query(query,[nombre,apellido,quit,pass,roles_idroles], (err, rows, fields) => {
+  let {nombre,apellido,cuit,pass,roles_idroles} = req.body;
+  const query = `INSERT INTO usuarios (nombre,apellido,cuit,pass,roles_idroles) VALUES (?,?,?,?,?);`;
+  mysqlConnection.query(query,[nombre,apellido,cuit,pass,roles_idroles], (err, rows, fields) => {
     if(!err) {
       if(rows.length == 0){
         res.json(0);
@@ -38,9 +38,9 @@ router.post('/insert', (req, res) => {
 
 router.post('/edit', (req, res) => {
   console.log(req.body);
-  let {nombre,apellido,quit,pass,roles_idroles,idusuarios} = req.body;
-  const query = `UPDATE usuarios SET nombre=?, apellido=?, quit=?, pass=?,roles_idroles=? WHERE idusuarios = ?;`;
-  mysqlConnection.query(query,[nombre,apellido,quit,pass,roles_idroles,idusuarios], (err, rows, fields) => {
+  let {nombre,apellido,cuit,pass,roles_idroles,idusuarios} = req.body;
+  const query = `UPDATE usuarios SET nombre=?, apellido=?, cuit=?, pass=?,roles_idroles=? WHERE idusuarios = ?;`;
+  mysqlConnection.query(query,[nombre,apellido,cuit,pass,roles_idroles,idusuarios], (err, rows, fields) => {
     if(!err) {
       if(rows.length == 0){
         res.json(0);

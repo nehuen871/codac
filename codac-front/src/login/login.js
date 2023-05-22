@@ -33,7 +33,7 @@ class Login extends React.Component{
         idusuarios:"",
         nombre:"",
         pass:"",
-        quit:"",
+        cuit:"",
         roles_idroles: ""
       }
     };
@@ -49,7 +49,7 @@ class Login extends React.Component{
     let {islogin,logIn} = this.context;
     row.pop();
     row.push({
-      quit: this.state.email,
+      cuit: this.state.email,
       pass: this.state.password
     });
     let useInfo = await this.logintService.getUser({row:row[0]});
@@ -62,7 +62,7 @@ class Login extends React.Component{
           idusuarios:useInfo.data.idusuarios,
           nombre:useInfo.data.nombre,
           pass:useInfo.data.pass,
-          quit:useInfo.data.quit,
+          cuit:useInfo.data.cuit,
           roles_idroles:useInfo.data.roles_idroles
       }});
       islogin = true;
@@ -81,7 +81,7 @@ class Login extends React.Component{
       <div>    
         {!isLoggedIn ? 
         <MDBContainer className="p-3 my-5 d-flex flex-column" style={{width:"30%"}}> 
-        <MDBInput wrapperClass='mb-4' label='Quit' id='form1' type='email' value={this.state.email || ""} onChange={this.handleEmailChange}/>
+        <MDBInput wrapperClass='mb-4' label='Cuit' id='form1' type='email' value={this.state.email || ""} onChange={this.handleEmailChange}/>
         <MDBInput wrapperClass='mb-4' label='Contraseña' id='form2' type='password' value={this.state.password || ""} onChange={this.handlePasswordChange}/>
         <MDBBtn className="mb-4" style={{backgroundColor:"#fbbc04",borderColor:"#fbbc04",color:"black"}} onClick={this.handleLoginClick}>Acceder</MDBBtn>
         <div className="text-center">
