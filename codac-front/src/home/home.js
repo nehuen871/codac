@@ -6,8 +6,6 @@ import {
     MDBCardHeader,
     MDBBtn
   } from 'mdb-react-ui-kit';
-import { ProductService } from '../rolesTableros/ProductService';
-import { TableroService } from '../tablero/ProductService';
 import {
   BrowserRouter as Router,
   Link
@@ -23,8 +21,6 @@ export default class Home extends React.Component {
         dataUser:null
         };
         let data1 = [];
-        this.productService = new ProductService();
-        this.tableroService = new TableroService();
         this.validarAmbienteService = new ValidarAmbienteService();
         this.handleLogStatus = this.handleLogStatus.bind(this);
         this.postData = this.postData.bind(this);

@@ -1,6 +1,4 @@
 import React,{ useState } from 'react'
-import { ProductService } from '../rolesTableros/ProductService';
-import { TableroService } from '../tablero/ProductService';
 import {
   Sidebar,
   Menu,
@@ -23,8 +21,6 @@ export default class SidebarMenu extends React.Component {
       dataUser:null
     };
     let data1 = [];
-    this.productService = new ProductService();
-    this.tableroService = new TableroService();
     this.validarAmbienteService = new ValidarAmbienteService();
     this.handleLogStatus = this.handleLogStatus.bind(this);
     this.postData = this.postData.bind(this);
