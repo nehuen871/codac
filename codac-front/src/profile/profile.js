@@ -14,27 +14,23 @@ import {
   MDBProgressBar,
   MDBIcon,
   MDBListGroup,
+  MDBInput,
+  MDBInputGroup,
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
 
 export default function ProfilePage() {
   return (
     <section style={{ backgroundColor: '#eee' }}>
-      <MDBContainer className="py-5">
-        <MDBRow>
-          <MDBCol>
-            <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
-              <MDBBreadcrumbItem>
-                <a href='#'>Home</a>
-              </MDBBreadcrumbItem>
-              <MDBBreadcrumbItem>
-                <a href="#">User</a>
-              </MDBBreadcrumbItem>
-              <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
-            </MDBBreadcrumb>
-          </MDBCol>
-        </MDBRow>
-
+      <MDBContainer className="py-2">
+      <MDBInputGroup>
+          <MDBInput label='Search' style={{background:"#fff", width:"500px"}}/>
+          <MDBBtn rippleColor='dark' >
+            <MDBIcon icon='search' />
+          </MDBBtn>
+        </MDBInputGroup>
+        </MDBContainer>
+        <MDBContainer className="py-2">
         <MDBRow>
           <MDBCol lg="4">
             <MDBCard className="mb-4">
@@ -202,3 +198,24 @@ export default function ProfilePage() {
     </section>
   );
 }
+
+
+
+
+/**
+ *         <MDBRow>
+          <MDBCol>
+            <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
+              <MDBBreadcrumbItem>
+                <a href='#'>Home</a>
+              </MDBBreadcrumbItem>
+              <MDBBreadcrumbItem>
+                <a href="#">User</a>
+              </MDBBreadcrumbItem>
+              <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
+            </MDBBreadcrumb>
+          </MDBCol>
+        </MDBRow>
+ * 
+ * 
+ */

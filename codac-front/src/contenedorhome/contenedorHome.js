@@ -1,10 +1,8 @@
 import React from 'react';
-import Sidebar from '../navBar/navBar'
 import {
     Outlet
   } from "react-router-dom";
 import UserContext,{ContextLogin,UserConsumer} from '../context/context'
-import Home from '../home/home';
 export default class ContenedorHome extends React.Component {
     static contextType = UserContext;
     constructor(props) {

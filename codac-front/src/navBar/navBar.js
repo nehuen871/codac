@@ -52,8 +52,8 @@ async postData(url = '', data = {}) {
 }
 componentDidMount() {
   let ambiente = this.validarAmbienteService.getAmbiente();
-  const {islogin,userIdRol,logIn,logOut} = this.context;
-  this.postData(ambiente+'/tablerosroles/gettablerosroles/',{roles_idroles:userIdRol});
+  const {islogin,userId,logIn,logOut} = this.context;
+  this.postData(ambiente+'/users/getUser/',{id:userId});
   this.handleLogStatus();
 }
 handleLogStatus(){

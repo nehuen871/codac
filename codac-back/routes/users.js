@@ -33,6 +33,23 @@ router.post('/insert', (req, res) => {
   });
 });
 
+router.post('/getUser', (req, res) => {
+  console.log(req.body);
+  let {id} = req.body;
+  const query = `SELECT * from usuarios where id = ?;`;
+  mysqlConnection.query(query,[id], (err, rows, fields) => {
+    if(!err) {
+      if(rows.length == 0){
+        res.json(0);
+      }else{
+        res.json(rows);
+      }
+    } else {
+      res.json(err);
+    }
+  });
+});
+
 /**UPDATE `usuarios`.`usuarios` SET `nombre` = 'test31' WHERE (`idusuarios` = '3');
  */
 

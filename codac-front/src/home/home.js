@@ -1,16 +1,7 @@
 import React from 'react';
 import UserContext,{ContextLogin,UserConsumer} from '../context/context'
-import {
-    MDBCard,
-    MDBCardBody,
-    MDBCardHeader,
-    MDBBtn
-  } from 'mdb-react-ui-kit';
-import {
-  BrowserRouter as Router,
-  Link
-} from "react-router-dom";
 import {ValidarAmbienteService} from '../validarAmbiente/validarAmbiente';
+import ProfilePage from '../profile/profile';
 export default class Home extends React.Component {
     static contextType = UserContext;
     constructor(props) {
@@ -51,10 +42,10 @@ export default class Home extends React.Component {
         //return response.json(); // parses JSON response into native JavaScript objects
       }
       componentDidMount() {
-        const {userIdRol} = this.context;
+        /*const {userIdRol} = this.context;
         let ambiente = this.validarAmbienteService.getAmbiente();
         this.postData(ambiente+'/tablerosroles/gettablerosroles/',{roles_idroles:userIdRol});
-        this.handleLogStatus();
+        this.handleLogStatus();*/
       }
       handleLogStatus(){
         const {islogin} = this.context;
@@ -73,19 +64,7 @@ export default class Home extends React.Component {
         let i = 0;
         const { dataUser } = this.state;
         return(
-            <div className='row d-flex justify-content-center mt-5'>
-                        {dataUser && dataUser.data.map(
-                            item => <div className="col-md-3"><MDBCard alignment='center'>
-                            <MDBCardHeader>{item.nombre}</MDBCardHeader>
-                            <MDBCardBody>
-                                <MDBBtn style={{backgroundColor:"#fbbc04",borderColor:"#fbbc04"}}><Link to={"/contenedorHome/powerbi/"+item.accessToken+"/"+item.id} style={{color:"black",textDecoration:"none"}}>Acceder</Link></MDBBtn>
-                                <MDBBtn className="ms-1" style={{backgroundColor:"#fbbc04",borderColor:"#fbbc04"}}><Link to={"/contenedorHome/enviarcomentarios/"+item.idtableros} style={{color:"black",textDecoration:"none"}}>Comenatrios</Link></MDBBtn>
-                            </MDBCardBody>
-                            </MDBCard>
-                            </div>
-                            )                                  
-                        }
-            </div>
+          <ProfilePage />
         )
     }
 }
