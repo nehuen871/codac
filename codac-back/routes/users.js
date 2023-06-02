@@ -88,4 +88,29 @@ router.post('/delete', (req, res) => {
     }
   });
 });
+
+
+router.post('/getUserData', (req, res) => {
+  let {idSearch} = req.body;
+  response = "";
+  try {
+    let urlSend = process.env.userDataUrl+idSearch;
+    const init = {
+      method: 'GET'
+    };
+    fetch(urlSend, init)
+    .then((response) => {
+      return response.json(); // or .text() or .blob() ...
+    })
+    .then((text) => {
+      res.json(text);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+    } catch (error) {
+      console.log(error);
+    }
+});
+
 module.exports = router;

@@ -5,19 +5,19 @@ const fetch = (...args) =>
 const mysqlConnection  = require('../db/db.js');
 switch (process.env.ambiente) {
   case "prod":
-    var url = process.env.adUrlPrdo;
+    var url = process.env.adUrl;
     break;
   case "hml":
-    var url = process.env.adUrlHml;
+    var url = process.env.adUrl;
     break;
   case "qa":
-    var url = process.env.adUrlQa;
+    var url = process.env.adUrl;
     break;
   case "dev":
-    var url = process.env.adUrlDev;
+    var url = process.env.adUrl;
     break;
   default:
-    var url = process.env.adUrlLocal;
+    var url = process.env.adUrl;
     break;
 }
 /* GET users listing. */
