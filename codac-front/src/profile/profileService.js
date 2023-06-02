@@ -5,8 +5,7 @@ export class ProfileService {
         let respuesta = {};
         async function getDAtaUser(data){
           let ambienteFinal = ambiente.getAmbiente();
-          console.log(ambienteFinal);
-          let url = ambienteFinal+"/users";
+          let url = ambienteFinal+"/users/usersWS";
             try {
               const response = await fetch(url, {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.

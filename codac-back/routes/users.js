@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const fetch = (...args) =>
+	import('node-fetch').then(({default: fetch}) => fetch(...args));
 const mysqlConnection  = require('../db/db.js');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -16,6 +18,33 @@ router.get('/', function(req, res, next) {
     }
   });
 });
+
+router.post('/usersWS', (req, res) => {
+  console.log(req.body);
+  let {buscar} = req.body;
+  
+  response = "";
+  /*try {
+    let urlSend = process.env.userDataUrl+buscar;
+    const init = {
+      method: 'GET'
+    };
+    console.log(urlSend);
+    fetch(urlSend, init)
+    .then((response) => {
+      return response.json(); // or .text() or .blob() ...
+    })
+    .then((text) => {
+      res.json(text);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+    } catch (error) {
+      console.log(error);
+    }*/
+});
+
 router.post('/insert', (req, res) => {
   console.log(req.body);
   let {nombre,apellido,cuit,pass,roles_idroles} = req.body;
@@ -87,30 +116,6 @@ router.post('/delete', (req, res) => {
       res.json(err);
     }
   });
-});
-
-
-router.post('/getUserData', (req, res) => {
-  let {idSearch} = req.body;
-  response = "";
-  try {
-    let urlSend = process.env.userDataUrl+idSearch;
-    const init = {
-      method: 'GET'
-    };
-    fetch(urlSend, init)
-    .then((response) => {
-      return response.json(); // or .text() or .blob() ...
-    })
-    .then((text) => {
-      res.json(text);
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-    } catch (error) {
-      console.log(error);
-    }
 });
 
 module.exports = router;
