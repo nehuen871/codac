@@ -28,7 +28,7 @@ export default class HeaderApp extends React.Component {
           {[false].map((expand) => (
             <Navbar key={expand} bg="" expand={expand} className="mb-3" style={{ backgroundColor:"#6c757d",height: "80px"}}>
               <Container fluid>
-                <Navbar.Brand className="position-absolute bottom-0 end-0"href="#" style={{ height: "100%"}}>{userName}<PersonCircle style={{left:"30px",top:"45px",height:"40px",width: "40px"}}/></Navbar.Brand>
+                <Navbar.Brand className="position-absolute bottom-0 end-0"href="#" style={{ height: "100%"}}>{userName}<PersonCircle style={{marginLeft:"10px",left:"30px",top:"45px",height:"40px",width: "40px"}}/></Navbar.Brand>
                 <Navbar.Toggle  aria-controls={`offcanvasNavbar-expand-${expand}`}>
                   <Justify style={{left:"30px",top:"45px",height:"40px",width: "40px"}}/>
                 </Navbar.Toggle>

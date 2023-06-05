@@ -24,7 +24,7 @@ router.post('/usersWS', (req, res) => {
   let {buscar} = req.body;
   
   response = "";
-  /*try {
+  try {
     let urlSend = process.env.userDataUrl+buscar;
     const init = {
       method: 'GET'
@@ -42,7 +42,7 @@ router.post('/usersWS', (req, res) => {
     });
     } catch (error) {
       console.log(error);
-    }*/
+    }
 });
 
 router.post('/insert', (req, res) => {
